@@ -1,0 +1,62 @@
+
+1.
+Instalacia django do python: 
+pip list(ake kniznice mame cez pip nainstalovane d pythonu)
+pip install django(stiahne djago)
+
+2.
+Vytvorenie django projektu
+django-admin startproject [nazov projektu] .
+(treba davat na koniec prikazu aj bodku, ^vytvorenie projektu)
+
+3. 
+nastavenie jazyku/casu (web-settings.py)
+LANGUAGE_CODE = 'sk'
+TIME_ZONE = 'Europe/Bratislava'
+
+4.
+spustenie vyvojoveho servera
+python manage.py runserver 
+
+5.
+vytvorenie aplikacie
+python manage.py startapp [meno aplikacie]
+
+6.
+zaregistrovanie aplikacie do projektu(web-settings.py)
+INSTALLED_APPS = [
+    'django.contrib.admin',
+     ...
+    '[nazov aplikacie]',
+]
+
+7.
+vytvorenie jednoducheho views (apka-views.py)
+```
+from django.shortcuts import render, HttpResponse
+
+def index(request):
+    return HttpResponse('Hello World!')
+```
+
+8.vytvorenie urlpattern:
+8.1 mySite/urls.py
+```
+from django.urls import path, include <
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('skuska/', include('skuska.urls')), <
+]```
+
+8.2
+vytvvorenie suboru urls.py v riecinku aplikecie
+upravit urls.py
+```
+from django.urls import path
+from . import views
+
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]```
