@@ -60,3 +60,10 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
 ]```
+
+
+9. Template
+9.1
+- Vytvoriť v priečinku aplikácie priečinok templates/nazov_aplikacie
+- v tomto priečinku vytvoriť html súbor (napr. index.html)
+9.2 upraviť views tak, aby používal template
