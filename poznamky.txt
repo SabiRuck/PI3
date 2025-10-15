@@ -42,11 +42,11 @@ def index(request):
 8.vytvorenie urlpattern:
 8.1 mySite/urls.py
 ```
-from django.urls import path, include <
+from django.urls import path, include 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('skuska/', include('skuska.urls')), <
+    path('skuska/', include('skuska.urls')), 
 ]```
 
 8.2
@@ -67,3 +67,26 @@ urlpatterns = [
 - Vytvoriť v priečinku aplikácie priečinok templates/nazov_aplikacie
 - v tomto priečinku vytvoriť html súbor (napr. index.html)
 9.2 upraviť views tak, aby používal template
+from django.shortcuts import render
+
+def index(request):
+    sucet = 10+5
+    return render(request, "kalkulacka/index.html", {"vysledok":vysledok})
+
+def index(request):
+    sucet=10+5
+    sucin=10*5
+    apar="A je vacsie"
+    'kalkulacka/index.html', {"sucet":sucet, "sucin":sucin, "apar":apar}
+10 css, obrazky
+- Vytvoriť v priečinku aplikácie priečinok static/nazov_aplikacie
+- v tomto priecinku vytvorit css (napr. kalkulacka.css)
+- do tohto priecinku nakopirovat obrazky
+- do teplate (index.html) doplnit:
+    -uplne na zaciatok ``` {% load static %} ```
+    -do hlavicky odkas na styl
+    <head>
+        <link rel="stylesheet" href="{% static 'kalkulacka/kalkulacka.css' %}">
+    </head>
+-obrazok vlozit:
+    <img src={% static 'kalkulacka/calc.png' %}>

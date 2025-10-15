@@ -1,0 +1,21 @@
+
+from django.shortcuts import render, HttpResponse
+
+def index(request):
+    if request.method == "GET":
+        odpoved = 0
+    if request.method == "POST":
+        try:
+            a = float(request.POST["a"])
+            b = float(request.POST["b"])
+        except ValueError:
+            return render(request, "cisla/index.html", dict(odpoved="nespravny input"))
+
+        if(a>b):
+            odpoved="Cislo A je vacsie"
+        elif(b<a):
+            odpoved="Cislo B je vacsie"
+        else:
+            odpoved="Cisla su ronvake"
+
+    return render(request, 'cisla/index.html', {"odpoved":odpoved})
