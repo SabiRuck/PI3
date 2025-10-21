@@ -18,4 +18,4 @@ def index(request):
         else:
             odpoved="Cisla su ronvake"
 
-    return render(request, 'cisla/index.html', {"odpoved":odpoved})
+    return render(request, 'cislaa/index.html', {"odpoved":odpoved})
