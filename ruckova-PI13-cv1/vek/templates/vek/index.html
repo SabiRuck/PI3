@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vek</title>
+</head>
+<body>
+
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Vek</h1>
+        <label>Zadaj meno:</label>
+        <input type="text" name="name">
+        <label>Zadaj datum narodenia:</label>
+        <input type="text" name="date">
+        <input type="submit">
+        <h2>{{name}}</h2>
+        <h2>{{output}}</h2>
+
+    </form>
+    
+</body>
+</html>

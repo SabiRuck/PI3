@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prvocislo</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+
+        <h1>Prvocislo</h1>
+        <label>Zadaj cislo</label>
+        <input type="integer" name="num">
+        <input type="submit">
+
+        <h2>{{output}}</h2>
+    </form>
+    
+</body>
+</html>
