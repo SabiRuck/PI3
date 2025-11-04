@@ -78,6 +78,7 @@ def index(request):
     sucin=10*5
     apar="A je vacsie"
     'kalkulacka/index.html', {"sucet":sucet, "sucin":sucin, "apar":apar}
+    
 10 css, obrazky
 - Vytvoriť v priečinku aplikácie priečinok static/nazov_aplikacie
 - v tomto priecinku vytvorit css (napr. kalkulacka.css)

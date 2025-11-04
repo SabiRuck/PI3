@@ -1,0 +1,94 @@
+PYTHON
+from django.shortcuts import render, HttpResponse
+
+def index(request):
+    if request.method == "GET":
+        output=""
+    if request.method == "POST":
+        try:
+            num = int(request.POST["num"])
+            name = str(request.POST["name"])
+
+            if(num<0):
+                raise ValueError
+        except ValueError:
+            return render(request, "faktrial/index.html", {"output":"Wrong Input"})
+
+        output = f"Faktorial cisla {num} je {output}"
+
+    return render(request, "faktorial/index.html", {"output":output})
+
+
+for i in range(1, num+1):
+
+months = ["januar", "februar",]
+int(date[:2])
+
+for i in range(2, num):
+    if int(num) % i == 0 :
+        output="nie je"
+
+idk = str(num)
+output=0
+for i in idk:
+    output = output + int(i)
+
+
+
+HTML
+<form method="post">
+    {% csrf_token %}
+
+    <h1>Vek</h1>
+    <label>Zadaj meno:</label>
+    <input type="text" name="name">
+    <label>Zadaj datum narodenia:</label>
+    <input type="text" name="date">
+    <input type="submit">
+
+    <h2>{{name}}</h2>
+    <h2>{{output}}</h2>
+</form>
+
+
+
+DJANGO
+
+django-admin startproject [nazov projektu] .
+
+(web-settings.py)
+LANGUAGE_CODE = 'sk'
+TIME_ZONE = 'Europe/Bratislava'
+
+python manage.py runserver 
+
+python manage.py startapp [meno apk]
+
+(web-settings.py)
+INSTALLED_APPS = [
+     ...
+    '[meno apk]']
+
+(mySite/urls.py)
+from django.urls import path, include 
+urlpatterns = [
+    ...
+    path('[meno apk]/', include('[meno apk].urls')),]
+
+
+(vytvorit urls.py v apk)
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),]
+
+
+(vytvorit [meno apk]/templates/[meno_apk]/index.html)
+
+([meno apk]/static/[nazov_apk]/style.css)
+([meno apk]/static/[nazov_apk]/[tvoje obrazky])
+html:
+    {% load static %} //uplne hore htmlka
+    <link rel="stylesheet" href="{% static 'kalkulacka/kalkulacka.css' %}">
+    <img src={% static 'kalkulacka/calc.png' %}>
