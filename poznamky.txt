@@ -91,3 +91,36 @@ def index(request):
     </head>
 -obrazok vlozit:
     <img src={% static 'kalkulacka/calc.png' %}>
+
+11. Modely (models.py)
+
+```
+class Osoba(web/models.Model):
+    meno = models.CharField(max_length=100)
+    priezvisko = models.CharField(max_length=100)
+    vek = models.IntegerField()
+    datum = models.DateField()
+    email = models.EmailField()
+    muz = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.meno} {self.priezvisko}"
+    
+```
+
+12. vytvorenie struktury atabazy podla modelov:
+python manage.py makemigrations
+python manage.py migrate
+
+databaza sa defaultne vytvara v subore db.sqlite3
+
+13. vytvorenie prveho uzivatela do admin rozhrania
+python manage.py createsuperuser
+
+14.zahrnute aplikacie do admin panela (web/admin.py)
+```
+from django.contrib import admin
+from .models import Osoba
+
+admin.site.register(Osoba)
+```
