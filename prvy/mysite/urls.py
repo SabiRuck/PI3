@@ -22,5 +22,6 @@ urlpatterns = [
     path('skuska/', include('skuska.urls')),
     path('kalkulacka/', include('kalkulacka.urls')),
     path('cislaa/', include('cislaa.urls')),
+    path('skola/', include("skola.urls")),
 
 ]

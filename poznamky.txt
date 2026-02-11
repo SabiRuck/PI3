@@ -59,8 +59,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-]```
-
+]
+```
 
 9. Template
 9.1
@@ -108,7 +108,7 @@ class Osoba(web/models.Model):
     
 ```
 
-12. vytvorenie struktury atabazy podla modelov:
+12. vytvorenie struktury databazy podla modelov:
 python manage.py makemigrations
 python manage.py migrate
 
@@ -123,4 +123,19 @@ from django.contrib import admin
 from .models import Osoba
 
 admin.site.register(Osoba)
+```
+heslo - cisco
+
+python prvy/manage.py startapp skola
+
+nastavenie pluralu a podla coho sa maju itemy zoradzovat
+```
+    class Meta:
+        verbose_name = "Ucitel"
+        verbose_name_plural = "Ucitelia"
+        ordering = ["priezvisko"]
+```
+
+15
+skola/viewn.py
 ```
